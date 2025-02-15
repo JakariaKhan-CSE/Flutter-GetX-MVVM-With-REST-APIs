@@ -23,6 +23,8 @@ class UserPreference {
 
   Future<bool> removeUser() async {
     SharedPreferences sp = await SharedPreferences.getInstance();
+    sp.remove('token');
+    sp.setBool('isLogin', false);
     sp.clear();
 
     return true;
